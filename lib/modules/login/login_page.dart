@@ -42,11 +42,11 @@ class _LoginPageState extends State<LoginPage> {
                 right: 0,
                 child: Image.asset(
                   AppImages.person,
-                  width: 208,
-                  height: 300,
+                  width: sizeScreen.width * 0.95,
+                  height: sizeScreen.width * 0.95,
                 )),
             Positioned(
-              bottom: sizeScreen.height * 0.05,
+              bottom: sizeScreen.height * 0.07,
               left: 0,
               right: 0,
               child: Column(
