@@ -10,6 +10,7 @@ class SetLabelButtons extends StatelessWidget {
   final String secondaryLabel;
   final VoidCallback secondaryOnPressed;
   final bool enablePrimaryColor;
+  final bool enableSecondaryColor;
 
   const SetLabelButtons({
     Key? key,
@@ -18,6 +19,7 @@ class SetLabelButtons extends StatelessWidget {
     required this.secondaryLabel,
     required this.secondaryOnPressed,
     this.enablePrimaryColor = false,
+    this.enableSecondaryColor = false,
   }) : super(key: key);
 
   @override
@@ -25,20 +27,37 @@ class SetLabelButtons extends StatelessWidget {
     return Container(
       color: AppColors.shape,
       height: 56,
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-            child: LabelButton(
-              label: primaryLabel,
-              onPressed: primaryOnPressed,
-              style: enablePrimaryColor ? AppTextStyles.buttonPrimary : null,
-            ),
+          Divider(
+            height: 1,
+            thickness: 1,
+            color: AppColors.stroke,
           ),
-          DividerVertical(),
-          Expanded(
-            child: LabelButton(
-              label: secondaryLabel,
-              onPressed: secondaryOnPressed,
+          Container(
+            height: 55,
+            child: Row(
+              children: [
+                Expanded(
+                  child: LabelButton(
+                    label: primaryLabel,
+                    onPressed: primaryOnPressed,
+                    style:
+                        enablePrimaryColor ? AppTextStyles.buttonPrimary : null,
+                  ),
+                ),
+                DividerVertical(),
+                Expanded(
+                  child: LabelButton(
+                    label: secondaryLabel,
+                    onPressed: secondaryOnPressed,
+                    style: enableSecondaryColor
+                        ? AppTextStyles.buttonPrimary
+                        : null,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
