@@ -1,3 +1,4 @@
+import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
 import 'package:payflow/modules/login/Bloc/login_bloc.dart';
 import 'package:payflow/modules/login/login_contrller.dart';
@@ -75,10 +76,13 @@ class _LoginPageState extends State<LoginPage> {
                       right: 40,
                       top: 40,
                     ),
-                    child: SocialLoginButton(
-                      onTap: () {
-                        controller.googleSignIn(context);
-                      },
+                    child: AnimatedCard(
+                      direction: AnimatedCardDirection.left,
+                      child: SocialLoginButton(
+                        onTap: () {
+                          controller.googleSignIn(context);
+                        },
+                      ),
                     ),
                   ),
                 ],

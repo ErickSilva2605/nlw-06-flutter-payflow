@@ -76,7 +76,7 @@ class _InsertBoletoPageState extends State<InsertBoletoPage> {
                         label: "Nome do boleto",
                         icon: Icons.description_outlined,
                         onChanged: (value) {
-                          controller.onChanged(name: value);
+                          controller.onChange(name: value);
                         }),
                     InputTextWidget(
                         validator: controller.validateVencimento,
@@ -84,7 +84,7 @@ class _InsertBoletoPageState extends State<InsertBoletoPage> {
                         label: "Vencimento",
                         icon: FontAwesomeIcons.timesCircle,
                         onChanged: (value) {
-                          controller.onChanged(dueDate: value);
+                          controller.onChange(dueDate: value);
                         }),
                     InputTextWidget(
                         validator: (_) => controller.validateValor(
@@ -92,8 +92,8 @@ class _InsertBoletoPageState extends State<InsertBoletoPage> {
                         controller: moneyInputTextController,
                         label: "Valor",
                         icon: FontAwesomeIcons.wallet,
-                        onChanged: (value) {
-                          controller.onChanged(
+                        onChanged: (_) {
+                          controller.onChange(
                               value: moneyInputTextController.numberValue);
                         }),
                     InputTextWidget(
@@ -102,7 +102,7 @@ class _InsertBoletoPageState extends State<InsertBoletoPage> {
                       label: "Código",
                       icon: FontAwesomeIcons.barcode,
                       onChanged: (value) {
-                        controller.onChanged(barcode: value);
+                        controller.onChange(barcode: value);
                       },
                     ),
                   ],
@@ -119,7 +119,7 @@ class _InsertBoletoPageState extends State<InsertBoletoPage> {
         },
         secondaryLabel: "Cadastrar",
         secondaryOnPressed: () async {
-          await controller.cadastrarBoleto();
+          await controller.cadastrar();
           Navigator.pop(context);
         },
         enableSecondaryColor: true,
